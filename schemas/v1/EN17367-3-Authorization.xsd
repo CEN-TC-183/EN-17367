@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name: EN17367-3-Authorization
+    Status: DRAFT
+    Version: 1.0
+    Purpose: Defines the schema to be used to exchange authorization data between the collection container system and the back-office systems
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="urn:cen.eu:en17367:v1-0:authorization-message"
+            xmlns:cc="urn:cen.eu:en17367:v1-0:common-components"
+            targetNamespace="urn:cen.eu:en17367:v1-0:authorization-message"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1.0">
+    <!-- IMPORTS -->
+    <xsd:import namespace="urn:cen.eu:en17367:v1-0:common-components" schemaLocation="./EN17367-CommonComponents.xsd"/>
+    <!-- ROOT ELEMENT -->
+    <xsd:element name="AuthorizationMessage" type="AuthorizationMessageType"/>
+    <!-- TYPE DEFINITIONS -->
+    <xsd:complexType name="AuthorizationMessageType">
+        <xsd:sequence>
+            <xsd:element name="MessageIdentifier" type="cc:MessageIdentifierType"/>
+            <xsd:element name="CollectionContainer" type="cc:CollectionContainerType" maxOccurs="unbounded"/>
+            <xsd:element name="WhiteList" type="WhiteListType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="WhiteListType">
+        <xsd:sequence>
+            <xsd:element name="Chip" type="cc:ChipType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

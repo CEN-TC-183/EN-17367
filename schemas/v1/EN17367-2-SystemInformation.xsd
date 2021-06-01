@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name: EN17367-2-SystemInformation
+    Status: DRAFT
+    Version: 1.0
+    Purpose: Defines the schema to be used to exchange system information data between the collection container system and the back-office systems
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="urn:cen.eu:en17367:v1-0:system-information-message"
+            xmlns:cc="urn:cen.eu:en17367:v1-0:common-components"
+            targetNamespace="urn:cen.eu:en17367:v1-0:system-information-message"
+            elementFormDefault="qualified" 
+            attributeFormDefault="unqualified" 
+            version="1.0">
+    <!-- IMPORTS -->
+    <xsd:import namespace="urn:cen.eu:en17367:v1-0:common-components" schemaLocation="./EN17367-CommonComponents.xsd"/>
+    <!-- ROOT ELEMENT -->
+    <xsd:element name="SystemInformationMessage" type="SystemInformationMessageType"/>
+    <!-- TYPE DEFINITIONS -->
+    <xsd:complexType name="SystemInformationMessageType">
+        <xsd:sequence>
+            <xsd:element name="MessageIdentifier" type="cc:MessageIdentifierType"/>
+            <xsd:element name="ContainerSystemInformation" type="ContainerSystemInformationType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ContainerSystemInformationType">
+        <xsd:sequence>
+            <xsd:element name="Timestamp" type="xsd:dateTime"/>
+            <xsd:element name="CollectionContainer" type="cc:CollectionContainerType"/>
+            <xsd:element name="Trigger">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="100"/>
+                        <xsd:maxInclusive value="9999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SoftwareVersion" minOccurs="0">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="AuthorizationListMessageIdentifier" type="cc:MessageIdentifierType" minOccurs="0"/>
+            <xsd:element name="ConfigurationMessageIdentifier" type="cc:MessageIdentifierType" minOccurs="0"/>
+            <xsd:element name="MaximumLoad" type="cc:LoadType" minOccurs="0"/>
+            <xsd:element name="CurrentLoad" type="cc:LoadType" minOccurs="0"/>
+            <xsd:element name="MalfunctionType" minOccurs="0">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="100"/>
+                        <xsd:maxInclusive value="999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="BatteryCapacity" minOccurs="0">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="0"/>
+                        <xsd:maxInclusive value="100"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SignalStrength" minOccurs="0">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="0"/>
+                        <xsd:maxInclusive value="100"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SystemInformation" type="cc:CodeValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

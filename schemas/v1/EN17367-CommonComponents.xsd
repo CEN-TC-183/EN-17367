@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name: EN17367-2-CommonComponents
+    Status: DRAFT
+    Version: 1.0
+    Purpose: Defines the common components that can be used for the interfaces
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="urn:cen.eu:en17367:v1-0:common-components"
+            targetNamespace="urn:cen.eu:en17367:v1-0:common-components" 
+            elementFormDefault="qualified" 
+            attributeFormDefault="unqualified" 
+            version="1.0">
+    <!-- IMPORTS -->
+    <xsd:import namespace="http://www.w3.org/2001/XMLSchema" schemaLocation="http://www.w3.org/2001/XMLSchema.xsd"/>
+    <!-- TYPE DEFINITIONS -->
+    <xsd:complexType name="Chip">
+        <xsd:sequence>
+            <xsd:element name="ChipIdentifier">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:hexBinary">
+                        <xsd:minLength value="4"/>
+                        <xsd:maxLength value="7"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="RegistrationType">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="100"/>
+                        <xsd:maxInclusive value="999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="LoadType">
+        <xsd:sequence>
+            <xsd:element name="Value">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:maxInclusive value="99999999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="unit" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="millilitre"/>
+                    <xsd:enumeration value="gram"/>
+                    <xsd:enumeration value="pieces"/>
+                    <xsd:enumeration value="centimetres"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="CollectionContainerType">
+        <xsd:sequence>
+            <xsd:element name="IdentifierContainer">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="IdentifierSupplierContainer">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="100"/>
+                        <xsd:maxInclusive value="999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="IdentifierSubContainer" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CodeValuePairType">
+        <xsd:sequence>
+            <xsd:element name="Code">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:unsignedInt">
+                        <xsd:minInclusive value="100"/>
+                        <xsd:maxInclusive value="9999"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="MessageIdentifierType">
+        <xsd:restriction base="xsd:unsignedInt"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="WeightInGramType">
+        <xsd:restriction base="xsd:unsignedInt"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="VolumeType">
+        <xsd:restriction base="xsd:unsignedInt">
+            <xsd:maxInclusive value="999999"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
