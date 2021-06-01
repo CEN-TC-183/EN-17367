@@ -1,0 +1,135 @@
+openapi: 3.0.1
+info:
+  title: EN-17367 Waste management
+  description: >
+    Data communication between communication management system and the back office system for stationary waste collection containers
+  version: v1
+externalDocs:
+  description: This specification is maintained by CEN/TC 183 - Waste Management
+  url: https://standards.cen.eu/dyn/www/f?p=204:7:0::::FSP_ORG_ID:6164&cs=1C9327C135B09202117D76571024D4079
+tags:
+- name: Backoffice
+  description: APIs implemented by back-office systems
+- name: Collection Container Systems
+  description: APIs implemented by collection container systems
+
+paths:
+  /transactions:
+    post:
+      tags:
+      - Backoffice
+      summary: The registration of deposit of waste and fractions in the collection container
+      requestBody:
+        description: A `<TransactionMessage>` according to the XML schema definition
+        content:
+          application/xml:
+            schema:
+              $ref: '../schemas/v1/EN17367-1-Transaction.xsd'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
+  /system-information:
+    post:
+      tags:
+      - Backoffice
+      summary: Information about the state of a collection container
+      requestBody:
+        description: A `<SystemInformationMessage>` according to the XML schema definition
+        content:
+          application/xml:
+            schema:
+              $ref: '../schemas/v1/EN17367-2-SystemInformation.xsd'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
+  /authorizations:
+    post:
+      tags:
+      - Collection Container Systems
+      summary: Specification of UIDs that are allowed to perform a transaction on the collection container
+      requestBody:
+        description: A `<AuthorizationMessage>` according to the XML schema definition
+        content:
+          application/xml:
+            schema:
+              $ref: '../schemas/v1/EN17367-3-Authorization.xsd'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
+  /configuration:
+    post:
+      tags:
+      - Collection Container Systems
+      summary: The configuration to be applied to a set of collection containers
+      requestBody:
+        description: A `<ConfigurationMessage>` according to the XML schema definition
+        content:
+          application/xml:
+            schema:
+              $ref: '../schemas/v1/EN17367-4-Configuration.xsd'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
+  
+components:
+  responses:
+    201:
+      description: Created - The request has succeeded and processed directly
+      content: {}
+    202:
+      description: Accepted - The request has been received but not yet acted upon
+      content: {}
+    400:
+      description: Bad Request - The server could not understand the request due to invalid request body
+      content: {}
+    401:
+      description: Unauthenticated - The client must authenticate itself to get the requested response
+      content: {}
+    403:
+      description: Forbidden - The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource
+    500:
+      description: Internal Server Error - The server has encountered a situation it doesn't know how to handle
