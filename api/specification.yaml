@@ -116,7 +116,7 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-  /supplier/{supplierId}/container/{containerId}/authorizations:
+  /customer/{customerId}/container/{containerId}/authorizations:
     post:
       tags:
       - Update container authorizations
