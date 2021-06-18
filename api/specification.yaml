@@ -156,25 +156,23 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-    post:
+    patch:
       tags:
       - Update container authorizations
-      summary: Add UIDs that are allowed to perform a transaction on the collection container
+      summary: Add/remove UIDs that are allowed to perform a transaction on the collection container
       requestBody:
-        description: A list of UIDs that are allowed to perform a transaction on the collection container
+        description: Patches to be applied to the authorization list of a single or multiple collection containers
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/medium'
+              type: object
+              $ref: '#/components/schemas/authorizationPatch'
           application/xml:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/medium'
+              type: object
+              $ref: '#/components/schemas/authorizationPatch'
               xml:
-                name: Authorizations
+                name: AuthorizationPatch
                 wrapped: true
       responses:
         201:
@@ -187,41 +185,6 @@ paths:
           $ref: '#/components/responses/401'
         403:
           $ref: '#/components/responses/403'
-        500:
-          $ref: '#/components/responses/500'
-    delete:
-      tags:
-      - Update container authorizations
-      summary: Remove UIDs that are allowed to perform a transaction on the collection container
-      requestBody:
-        description: A list of UIDs that are not allowed anymore to perform a transaction on the collection container
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/medium'
-          application/xml:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/medium'
-              xml:
-                name: Authorizations
-                wrapped: true
-      responses:
-        201:
-          $ref: '#/components/responses/201'
-        202:
-          $ref: '#/components/responses/202'
-        400:
-          $ref: '#/components/responses/400'
-        401:
-          $ref: '#/components/responses/401'
-        403:
-          $ref: '#/components/responses/403'
-        406:
-          
         500:
           $ref: '#/components/responses/500'
 
@@ -239,6 +202,48 @@ components:
         - registrationType
       xml:
         name: Medium
+    authorizationPatch:
+      type: object
+      properties:
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/container'
+          xml:
+            name: Containers
+            wrapped: true
+        add:
+          type: array
+          items:
+            $ref: '#/components/schemas/medium'
+          xml:
+            name: AddToList
+            wrapped: true
+        remove:
+          type: array
+          items:
+            $ref: '#/components/schemas/medium'
+          xml:
+            name: RemoveFromList
+            wrapped: true
+    container:
+      type: object
+      properties:
+        id:
+          type: string
+          xml:
+            name: IdentifierContainer
+        supplier:
+          type: string
+          xml:
+            name: IdentifierSupplierContainer
+        subContainer:
+          type: string
+          xml:
+            name: IdentifierSubContainer
+      required:
+        - id
+        - supplier
   responses:
     201:
       description: Created - The request has succeeded and processed directly
