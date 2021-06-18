@@ -150,7 +150,42 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-  
+    delete:
+      tags:
+      - Update container authorizations
+      summary: Remove UIDs that are allowed to perform a transaction on the collection container
+      requestBody:
+        description: A list of UIDs that are not allowed anymore to perform a transaction on the collection container
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/medium'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/medium'
+              xml:
+                name: Authorizations
+                wrapped: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        406:
+          
+        500:
+          $ref: '#/components/responses/500'
+
 components:
   schemas:
     medium:
