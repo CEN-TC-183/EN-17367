@@ -117,6 +117,45 @@ paths:
         500:
           $ref: '#/components/responses/500'
   /customer/{customerId}/container/{containerId}/authorizations:
+    get:
+      tags:
+      - Get current container authorizations
+      summary: Get UIDs that are allowed to perform a transaction on the collection container
+      description: |
+        This API will return a list of aal UIDs that are currently allowed to perform a transaction on the collection container.
+        
+        This API can be consumed by the backoffice system to check if the whitelist (allowed UIDs) as configured in the collection container system is the same.
+        If there is a discrepancy between the two, the backoffice can take one of these actions:
+          1. Reset the authorization list by sending a complete new Authorizations message to a (set of) collection containers;
+          2. Update the differences by performing incremental POSTs and DELETEs on the authorization list of a specific collection container
+      parameters:
+        - name: customer
+          in: path
+          description: Number by which the customer of the collection container can be identified
+          required: true
+          schema:
+            type: string
+          example: 2836b5b6-ee18-4f50-b1a9-0a6342045dfa
+        - name: containerId
+          in: path
+          description: Number by which the collection container can be identified. This number has to be unique in the context of the party responsible for assigning the number to the specific container
+          required: true
+          schema:
+            type: string
+          example: 1293
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
     post:
       tags:
       - Update container authorizations
