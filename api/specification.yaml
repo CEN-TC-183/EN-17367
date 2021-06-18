@@ -116,7 +116,7 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-  /customer/{customerId}/container/{containerId}/authorizations:
+  /container/{containerId}/authorizations:
     get:
       tags:
       - Get current container authorizations
@@ -129,13 +129,6 @@ paths:
           1. Reset the authorization list by sending a complete new Authorizations message to a (set of) collection containers;
           2. Update the differences by performing incremental POSTs and DELETEs on the authorization list of a specific collection container
       parameters:
-        - name: customer
-          in: path
-          description: Number by which the customer of the collection container can be identified
-          required: true
-          schema:
-            type: string
-          example: 2836b5b6-ee18-4f50-b1a9-0a6342045dfa
         - name: containerId
           in: path
           description: Number by which the collection container can be identified. This number has to be unique in the context of the party responsible for assigning the number to the specific container
