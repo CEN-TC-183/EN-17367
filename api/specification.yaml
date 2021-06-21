@@ -12,8 +12,6 @@ tags:
   description: APIs implemented by back-office systems
 - name: Collection Container Systems
   description: APIs implemented by collection container systems
-- name: Update container authorizations
-  description: APIs to update authorizations for a specific collection container
 
 paths:
   /transactions:
