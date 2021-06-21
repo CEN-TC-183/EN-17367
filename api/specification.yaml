@@ -89,32 +89,6 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-  /configuration:
-    post:
-      tags:
-      - Collection Container Systems
-      summary: The configuration to be applied to a set of collection containers
-      requestBody:
-        description: A `<ConfigurationMessage>` according to the XML schema definition
-        content:
-          application/xml:
-            schema:
-              $ref: '../schemas/v1/EN17367-4-Configuration.xsd'
-        required: true
-      responses:
-        201:
-          $ref: '#/components/responses/201'
-        202:
-          $ref: '#/components/responses/202'
-        400:
-          $ref: '#/components/responses/400'
-        401:
-          $ref: '#/components/responses/401'
-        403:
-          $ref: '#/components/responses/403'
-        500:
-          $ref: '#/components/responses/500'
-  /container/{containerId}/authorizations:
     get:
       tags:
       - Collection Container Systems
@@ -176,6 +150,31 @@ paths:
         405:
           description: Method not allowed. Possibly out of sync. Please send a full authorization list using the POST/PUT operations
           content: {}
+        500:
+          $ref: '#/components/responses/500'
+  /configuration:
+    post:
+      tags:
+      - Collection Container Systems
+      summary: The configuration to be applied to a set of collection containers
+      requestBody:
+        description: A `<ConfigurationMessage>` according to the XML schema definition
+        content:
+          application/xml:
+            schema:
+              $ref: '../schemas/v1/EN17367-4-Configuration.xsd'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
 
