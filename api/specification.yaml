@@ -164,9 +164,6 @@ paths:
             schema:
               type: object
               $ref: '#/components/schemas/authorizationPatch'
-              xml:
-                name: AuthorizationPatch
-                wrapped: true
       responses:
         201:
           $ref: '#/components/responses/201'
@@ -198,6 +195,8 @@ components:
     authorizationPatch:
       type: object
       properties:
+          xml:
+            name: MessageIdentifier
         containers:
           type: array
           items:
