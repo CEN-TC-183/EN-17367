@@ -227,6 +227,9 @@ components:
           xml:
             name: RemoveFromList
             wrapped: true
+      required:
+        - messageId
+        - containers
       xml:
         name: AuthorizationPatch
     container:
