@@ -198,6 +198,12 @@ components:
     authorizationPatch:
       type: object
       properties:
+        messageId:
+          type: string
+          description: >
+            Increasing number (not required to be sequencial) which enables the receiver
+            to determine which request needs to be processed first in case of two nearly
+            simultanious patches on the same container authorization list
           xml:
             name: MessageIdentifier
         containers:
@@ -221,6 +227,8 @@ components:
           xml:
             name: RemoveFromList
             wrapped: true
+      xml:
+        name: AuthorizationPatch
     container:
       type: object
       properties:
