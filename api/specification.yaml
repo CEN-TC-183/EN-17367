@@ -119,7 +119,7 @@ paths:
   /container/{containerId}/authorizations:
     get:
       tags:
-      - Get current container authorizations
+      - Collection Container Systems
       summary: Get UIDs that are allowed to perform a transaction on the collection container
       description: |
         This API will return a list of aal UIDs that are currently allowed to perform a transaction on the collection container.
@@ -151,7 +151,7 @@ paths:
           $ref: '#/components/responses/500'
     patch:
       tags:
-      - Update container authorizations
+      - Collection Container Systems
       summary: Add/remove UIDs that are allowed to perform a transaction on the collection container
       requestBody:
         description: Patches to be applied to the authorization list of a single or multiple collection containers
