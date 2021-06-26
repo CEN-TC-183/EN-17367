@@ -74,8 +74,8 @@
     </xsd:complexType>
     <xsd:complexType name="CustomizedTimeWindowType">
         <xsd:sequence>
-            <xsd:element name="StartDateTime" type="xsd:dateTime"/>
-            <xsd:element name="EndDateTime" type="xsd:dateTime"/>
+            <xsd:element name="StartDateTime" type="xsd:dateTimeStamp"/>
+            <xsd:element name="EndDateTime" type="xsd:dateTimeStamp"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:complexType name="ClosingInformationType">

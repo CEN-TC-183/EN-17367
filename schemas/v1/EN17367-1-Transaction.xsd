@@ -35,7 +35,7 @@
                 </xsd:simpleType>
             </xsd:element>
             <xsd:element name="Chip" type="cc:ChipType"/>
-            <xsd:element name="Timestamp" type="xsd:dateTime"/>
+            <xsd:element name="Timestamp" type="xsd:dateTimeStamp"/>
             <xsd:element name="CollectionContainer" type="cc:CollectionContainerType"/>
             <xsd:element name="GrossWeight" type="cc:WeightInGramType" minOccurs="0"/>
             <xsd:element name="NetWeight" type="cc:WeightInGramType" minOccurs="0"/>

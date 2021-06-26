@@ -25,7 +25,7 @@
     </xsd:complexType>
     <xsd:complexType name="ContainerSystemInformationType">
         <xsd:sequence>
-            <xsd:element name="Timestamp" type="xsd:dateTime"/>
+            <xsd:element name="Timestamp" type="xsd:dateTimeStamp"/>
             <xsd:element name="CollectionContainer" type="cc:CollectionContainerType"/>
             <xsd:element name="Trigger">
                 <xsd:simpleType>
