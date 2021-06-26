@@ -89,6 +89,69 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
+    get:
+      tags:
+      - Collection Container Systems
+      summary: Get UIDs that are allowed to perform a transaction on the collection container
+      description: |
+        This API will return a list of aal UIDs that are currently allowed to perform a transaction on the collection container.
+        
+        This API can be consumed by the backoffice system to check if the whitelist (allowed UIDs) as configured in the collection container system is the same.
+        If there is a discrepancy between the two, the backoffice can take one of these actions:
+          1. Reset the authorization list by sending a complete new Authorizations message to a (set of) collection containers;
+          2. Update the differences by performing incremental POSTs and DELETEs on the authorization list of a specific collection container
+      parameters:
+        - name: containerId
+          in: path
+          description: Number by which the collection container can be identified. This number has to be unique in the context of the party responsible for assigning the number to the specific container
+          required: true
+          schema:
+            type: string
+          example: 1293
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        500:
+          $ref: '#/components/responses/500'
+    patch:
+      tags:
+      - Collection Container Systems
+      summary: Add/remove UIDs that are allowed to perform a transaction on the collection container
+      requestBody:
+        description: Patches to be applied to the authorization list of a single or multiple collection containers
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/authorizationPatch'
+          application/xml:
+            schema:
+              type: object
+              $ref: '#/components/schemas/authorizationPatch'
+      responses:
+        201:
+          $ref: '#/components/responses/201'
+        202:
+          $ref: '#/components/responses/202'
+        400:
+          $ref: '#/components/responses/400'
+        401:
+          $ref: '#/components/responses/401'
+        403:
+          $ref: '#/components/responses/403'
+        405:
+          description: Method not allowed. Possibly out of sync. Please send a full authorization list using the POST/PUT operations
+          content: {}
+        500:
+          $ref: '#/components/responses/500'
   /configuration:
     post:
       tags:
@@ -114,8 +177,76 @@ paths:
           $ref: '#/components/responses/403'
         500:
           $ref: '#/components/responses/500'
-  
+
 components:
+  schemas:
+    medium:
+      type: object
+      properties:
+        uid:
+          type: string
+        registrationType:
+          type: string
+      required:
+        - uid
+        - registrationType
+      xml:
+        name: Medium
+    authorizationPatch:
+      type: object
+      properties:
+        messageId:
+          type: string
+          description: >
+            Increasing number (not required to be sequencial) which enables the receiver
+            to determine which request needs to be processed first in case of two nearly
+            simultanious patches on the same container authorization list
+          xml:
+            name: MessageIdentifier
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/container'
+          xml:
+            name: Containers
+            wrapped: true
+        add:
+          type: array
+          items:
+            $ref: '#/components/schemas/medium'
+          xml:
+            name: AddToList
+            wrapped: true
+        remove:
+          type: array
+          items:
+            $ref: '#/components/schemas/medium'
+          xml:
+            name: RemoveFromList
+            wrapped: true
+      required:
+        - messageId
+        - containers
+      xml:
+        name: AuthorizationPatch
+    container:
+      type: object
+      properties:
+        id:
+          type: string
+          xml:
+            name: IdentifierContainer
+        supplier:
+          type: string
+          xml:
+            name: IdentifierSupplierContainer
+        subContainer:
+          type: string
+          xml:
+            name: IdentifierSubContainer
+      required:
+        - id
+        - supplier
   responses:
     201:
       description: Created - The request has succeeded and processed directly
