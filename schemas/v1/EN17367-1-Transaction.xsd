@@ -40,6 +40,14 @@
             <xsd:element name="GrossWeight" type="cc:WeightInGramType" minOccurs="0"/>
             <xsd:element name="NetWeight" type="cc:WeightInGramType" minOccurs="0"/>
             <xsd:element name="TareWeight" type="cc:WeightInGramType" minOccurs="0"/>
+            <xsd:element name="WeightClassification" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:unsignedInt">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xsd:element name="Volume" type="cc:VolumeType" minOccurs="0"/>
         </xsd:sequence>
     </xsd:complexType>
