@@ -46,14 +46,6 @@
             <xsd:element name="ConfigurationMessageIdentifier" type="cc:MessageIdentifierType" minOccurs="0"/>
             <xsd:element name="MaximumLoad" type="cc:LoadType" minOccurs="0"/>
             <xsd:element name="CurrentLoad" type="cc:LoadType" minOccurs="0"/>
-            <xsd:element name="MalfunctionType" minOccurs="0">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:unsignedInt">
-                        <xsd:minInclusive value="100"/>
-                        <xsd:maxInclusive value="999"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
             <xsd:element name="BatteryCapacity" minOccurs="0">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:unsignedInt">
