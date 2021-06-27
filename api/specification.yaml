@@ -100,14 +100,6 @@ paths:
         If there is a discrepancy between the two, the backoffice can take one of these actions:
           1. Reset the authorization list by sending a complete new Authorizations message to a (set of) collection containers;
           2. Update the differences by performing incremental POSTs and DELETEs on the authorization list of a specific collection container
-      parameters:
-        - name: containerId
-          in: path
-          description: Number by which the collection container can be identified. This number has to be unique in the context of the party responsible for assigning the number to the specific container
-          required: true
-          schema:
-            type: string
-          example: 1293
       responses:
         201:
           $ref: '#/components/responses/201'
