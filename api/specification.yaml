@@ -120,10 +120,10 @@ paths:
       requestBody:
         description: Patches to be applied to the authorization list of a single or multiple collection containers
         content:
-          application/json:
+          application/xml:
             schema:
               $ref: '#/components/schemas/authorizationPatch'
-          application/xml:
+          application/json:
             schema:
               $ref: '#/components/schemas/authorizationPatch'
       responses:
