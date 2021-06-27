@@ -122,11 +122,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
               $ref: '#/components/schemas/authorizationPatch'
           application/xml:
             schema:
-              type: object
               $ref: '#/components/schemas/authorizationPatch'
       responses:
         201:
@@ -239,6 +237,8 @@ components:
       required:
         - id
         - supplier
+      xml:
+        name: Container
   responses:
     201:
       description: Created - The request has succeeded and processed directly
