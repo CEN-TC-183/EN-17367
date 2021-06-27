@@ -48,14 +48,14 @@
     </xsd:complexType>
     <xsd:complexType name="CollectionContainerType">
         <xsd:sequence>
-            <xsd:element name="IdentifierContainer">
+            <xsd:element name="ContainerID">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
                         <xsd:maxLength value="16"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="IdentifierSupplierContainer">
+            <xsd:element name="ContainerSupplierID">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:unsignedInt">
                         <xsd:minInclusive value="100"/>
@@ -63,7 +63,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="IdentifierSubContainer" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="SubContainerID" type="xsd:string" minOccurs="0"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:complexType name="CodeValuePairType">
