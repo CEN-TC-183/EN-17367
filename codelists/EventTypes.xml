@@ -1,0 +1,86 @@
+<codelist id="EN17367-CL-EventTypes">
+    <item>
+        <code>100</code>
+        <description>Planned time</description>
+    </item>
+    <item>
+        <code>201</code>
+        <description>Upload configuration to container performed</description>
+    </item>
+    <item>
+        <code>202</code>
+        <description>Upload whitelist to container performed</description>
+    </item>
+    <item>
+        <code>203</code>
+        <description>Received application firmware</description>
+    </item>
+    <item>
+        <code>401</code>
+        <description>Container emptied</description>
+    </item>
+    <item>
+        <code>402</code>
+        <description>TCP/IP connection established</description>
+    </item>
+    <item>
+        <code>403</code>
+        <description>Collection container almost full / maximum load reached</description>
+    </item>
+    <item>
+        <code>404</code>
+        <description>Start empyting mode</description>
+    </item>
+    <item>
+        <code>405</code>
+        <description>Start idle mode after startup</description>
+    </item>
+    <item>
+        <code>500</code>
+        <description>Something went wrong. Generic system error</description>
+    </item>
+    <item>
+        <code>501</code>
+        <description>Reboot by watchdog</description>
+    </item>
+    <item>
+        <code>502</code>
+        <description>Jam, lid does not close</description>
+    </item>
+    <item>
+        <code>503</code>
+        <description>Drum stays open</description>
+    </item>
+    <item>
+        <code>504</code>
+        <description>Automark memory almost full</description>
+    </item>
+    <item>
+        <code>505</code>
+        <description>Memory error</description>
+    </item>
+    <item>
+        <code>506</code>
+        <description>Battery status</description>
+    </item>
+    <item>
+        <code>507</code>
+        <description>Lock fail</description>
+    </item>
+    <item>
+        <code>508</code>
+        <description>Service hatch opened</description>
+    </item>
+    <item>
+        <code>509</code>
+        <description>Fire</description>
+    </item>
+    <item>
+        <code>510</code>
+        <description>Sensor fail</description>
+    </item>
+    <item>
+        <code>511</code>
+        <description>No network</description>
+    </item>
+</codelist>

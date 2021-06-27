@@ -1,0 +1,46 @@
+<codelist id="EN17367-CL-RegistrationTypes">
+    <item>
+        <code>100</code>
+        <description>Deposit (authorization that can be used to deposit waste)</description>
+    </item>
+    <item>
+        <code>200</code>
+        <description>Generic service authorization</description>
+    </item>
+    <item>
+        <code>201</code>
+        <description>Outbound call (authorization to manually trigger the container to connect to management system)</description>
+    </item>
+    <item>
+        <code>202</code>
+        <description>Reset (warm-boot)</description>
+    </item>
+    <item>
+        <code>203</code>
+        <description>Service (not counted in total load count)</description>
+    </item>
+    <item>
+        <code>204</code>
+        <description>Emptying (including reset of total load count)</description>
+    </item>
+    <item>
+        <code>205</code>
+        <description>Inbound call (container waits for contact from the communication management system)</description>
+    </item>
+    <item>
+        <code>206</code>
+        <description>Lock test (this card only test the lock, not counted in total load count)</description>
+    </item>
+    <item>
+        <code>207</code>
+        <description>Show current load</description>
+    </item>
+    <item>
+        <code>208</code>
+        <description>Reset battery counter</description>
+    </item>
+    <item>
+        <code>209</code>
+        <description>Show GPRS signal</description>
+    </item>
+</codelist>

@@ -1,0 +1,22 @@
+<codelist id="EN17367-CL-TransactionTypes">
+    <item>
+        <code>100</code>
+        <description>Registration (normal end-users deposits waste)</description>
+    </item>
+    <item>
+        <code>200</code>
+        <description>Unknown Medium (not mentioned on whitelist)</description>
+    </item>
+    <item>
+        <code>201</code>
+        <description>Full container during transaction</description>
+    </item>
+    <item>
+        <code>202</code>
+        <description>Drum not opened</description>
+    </item>
+    <item>
+        <code>203</code>
+        <description>Card offered outside opening times container</description>
+    </item>
+</codelist>

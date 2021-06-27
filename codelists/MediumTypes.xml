@@ -1,0 +1,34 @@
+<codelist id="EN17367-CL-MediumTypes">
+    <item>
+        <code>1</code>
+        <description>RFID - MIFARE</description>
+    </item>
+    <item>
+        <code>2</code>
+        <description>RFID - Ultra-High Frequency (UHF)</description>
+    </item>
+    <item>
+        <code>3</code>
+        <description>RFID - Low Frequency (LF; EN14803)</description>
+    </item>
+    <item>
+        <code>4</code>
+        <description>NFC</description>
+    </item>
+    <item>
+        <code>5</code>
+        <description>Barcode / QR-code</description>
+    </item>
+    <item>
+        <code>6</code>
+        <description>IMEI (smartphone identifier)</description>
+    </item>
+    <item>
+        <code>7</code>
+        <description>Biometrics</description>
+    </item>
+    <item>
+        <code>8</code>
+        <description>Vendor app issued identifier</description>
+    </item>
+</codelist>
