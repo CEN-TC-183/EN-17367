@@ -26,7 +26,14 @@
     </xsd:complexType>
     <xsd:complexType name="WhiteListType">
         <xsd:sequence>
-            <xsd:element name="Chip" type="cc:ChipType" maxOccurs="unbounded"/>
+            <xsd:element name="Authorization" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="MediumUID" type="cc:MediumUIDType"/>
+                        <xsd:element name="RegistrationType" type="cc:RegistrationTypeType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
