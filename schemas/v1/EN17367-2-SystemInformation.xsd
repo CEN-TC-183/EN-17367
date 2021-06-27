@@ -62,7 +62,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="SystemInformation" type="cc:CodeValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="SystemInformation" type="cc:KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>

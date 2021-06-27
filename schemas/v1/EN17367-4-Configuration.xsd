@@ -39,7 +39,7 @@
             <xsd:element name="MaximumLoad" type="cc:LoadType" minOccurs="0"/>
             <xsd:element name="MaximumLoadMessage" type="cc:LoadType" minOccurs="0"/>
             <xsd:element name="CommunicationInformation" type="CommunicationInformationType" minOccurs="0"/>
-            <xsd:element name="ConfigurationSetting" type="cc:CodeValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="ConfigurationSetting" type="cc:KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="EventSetting" minOccurs="0" maxOccurs="unbounded">
                 <xsd:complexType>
                     <xsd:complexContent>

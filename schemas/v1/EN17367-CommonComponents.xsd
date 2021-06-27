@@ -61,17 +61,10 @@
             <xsd:element name="SubContainerID" type="xsd:string" minOccurs="0"/>
         </xsd:sequence>
     </xsd:complexType>
-    <xsd:complexType name="CodeValuePairType">
+    <xsd:complexType name="KeyValuePairType">
         <xsd:sequence>
-            <xsd:element name="Code">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:unsignedInt">
-                        <xsd:minInclusive value="100"/>
-                        <xsd:maxInclusive value="9999"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
-            <xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="Key" type="xsd:string"/>
+            <xsd:element name="Value" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:simpleType name="MessageIdentifierType">
