@@ -48,13 +48,7 @@
     </xsd:complexType>
     <xsd:complexType name="CollectionContainerType">
         <xsd:sequence>
-            <xsd:element name="ContainerID">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:maxLength value="16"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
+            <xsd:element name="ContainerID" type="xsd:string"/>
             <xsd:element name="ContainerSupplierID">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:unsignedInt">
