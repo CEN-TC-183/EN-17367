@@ -50,12 +50,13 @@
         <xsd:sequence>
             <xsd:element name="ContainerID" type="xsd:string"/>
             <xsd:element name="ContainerSupplierID">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:unsignedInt">
-                        <xsd:minInclusive value="100"/>
-                        <xsd:maxInclusive value="999"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:string">
+                            <xsd:attribute name="schemeID" type="xsd:string"/>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
             </xsd:element>
             <xsd:element name="SubContainerID" type="xsd:string" minOccurs="0"/>
         </xsd:sequence>
