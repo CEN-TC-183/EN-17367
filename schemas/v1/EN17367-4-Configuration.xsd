@@ -42,14 +42,11 @@
             <xsd:element name="ConfigurationSetting" type="cc:KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="EventSetting" minOccurs="0" maxOccurs="unbounded">
                 <xsd:complexType>
-                    <xsd:complexContent>
-                        <xsd:extension base="cc:CodeValuePairType">
-                            <xsd:sequence>
-                                <xsd:element name="Trigger" type="xsd:boolean"/>
-                                <xsd:element name="Log" type="xsd:boolean"/>
-                            </xsd:sequence>
-                        </xsd:extension>
-                    </xsd:complexContent>
+                    <xsd:sequence>
+                        <xsd:element name="Event" type="cc:EventType"/>
+                        <xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="Trigger" type="xsd:boolean"/>
+                    </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
         </xsd:sequence>
