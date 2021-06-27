@@ -27,14 +27,7 @@
         <xsd:sequence>
             <xsd:element name="Timestamp" type="xsd:dateTimeStamp"/>
             <xsd:element name="CollectionContainer" type="cc:CollectionContainerType"/>
-            <xsd:element name="Trigger">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:unsignedInt">
-                        <xsd:minInclusive value="100"/>
-                        <xsd:maxInclusive value="9999"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
+            <xsd:element name="Trigger" type="cc:EventType"/>
             <xsd:element name="SoftwareVersion" minOccurs="0">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">

@@ -78,4 +78,10 @@
             <xsd:maxInclusive value="999999"/>
         </xsd:restriction>
     </xsd:simpleType>
+    <xsd:simpleType name="EventType">
+        <xsd:restriction base="xsd:unsignedInt">
+            <xsd:minInclusive value="100"/>
+            <xsd:maxInclusive value="599"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 </xsd:schema>
