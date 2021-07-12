@@ -94,7 +94,7 @@
     </xsd:complexType>
     <xsd:complexType name="CommunicationTimeType">
         <xsd:sequence>
-            <xsd:element name="Time" type="xsd:time" minOccurs="0" maxOccurs="4"/>
+            <xsd:element name="Time" type="xsd:time" minOccurs="1" maxOccurs="4"/>
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
