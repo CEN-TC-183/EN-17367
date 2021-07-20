@@ -8,10 +8,12 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="urn:cen.eu:en17367:v1-0:authorization-message"
             xmlns:cc="urn:cen.eu:en17367:v1-0:common-components"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             targetNamespace="urn:cen.eu:en17367:v1-0:authorization-message"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
-            version="1.0">
+            version="1.0"
+            vc:minVersion="1.1">
     <!-- IMPORTS -->
     <xsd:import namespace="urn:cen.eu:en17367:v1-0:common-components" schemaLocation="./EN17367-CommonComponents.xsd"/>
     <!-- ROOT ELEMENT -->
