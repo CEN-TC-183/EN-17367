@@ -41,13 +41,13 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="WeightClassification">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:unsignedInt">
-                                    <xs:minInclusive value="0"/>
-                                    <xs:maxInclusive value="3"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:unsignedInt">
+                                    <xsd:minInclusive value="0"/>
+                                    <xsd:maxInclusive value="3"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
                         <xsd:element name="GrossWeight" type="cc:WeightInGramType" minOccurs="0"/>
                         <xsd:element name="NetWeight" type="cc:WeightInGramType" minOccurs="0"/>
                         <xsd:element name="TareWeight" type="cc:WeightInGramType" minOccurs="0"/>
